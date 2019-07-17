@@ -78,4 +78,6 @@ theme: hexo-theme-antiquity
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: git@github.com:13029768866/HEXO-BLOG.git
+  branch: master
