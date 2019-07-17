@@ -79,5 +79,5 @@ theme: hexo-theme-antiquity
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
   type: git
-  repository: git@github.com:13029768866/woodensRanger.github.io.git
+  repository: git@github.com:13029768866/13029768866.github.io.git
   branch: master
