@@ -1,11 +1,11 @@
 
 @font-face{
-  /* font-family: '汉仪行楷'; */
-  /* src: url('HYXK.woff'); */
+  font-family: '汉仪行楷';
+  src: url('HYXK.woff');
 }
 body {
   width: 100%;
-  /* font-family: '汉仪行楷'!important; */
+  font-family: '汉仪行楷'!important;
 }
 body:before,
 body:after {
