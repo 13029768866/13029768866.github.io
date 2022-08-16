@@ -37,5 +37,45 @@ button.addEventListener('click',() => {
 /* 用户点击,放入宏任务队列 */
 button.click(); // 这种情况,宏任务直接出发。 结果 listener1 listener2 task1 task2
 
+/* 测试三: 定时器任务 */
+Promise.resolve().then(() => {
+  console.log('Promise1')
+  setTimeout(() => {
+    console.log('setTimeout2')
+  }, 0)
+})
 
+setTimeout(() => {
+  console.log('setTimeout1');
+  Promise.resolve().then(() => {
+    console.log('Promise2')
+  })
+},0)
 
+// Promise1 setTimeout1 Promise2 setTimeout2
+
+/* 测试四 */
+console.log(1);
+async function async() {
+  console.log(2);
+  await console.log(3);
+  console.log(4);
+}
+
+setTimeout(() => {
+  console.log(5)
+}, 0)
+
+const promise = new Promise((resolve, reject) => {
+  console.log(6)
+  resolve(7)
+})
+
+promise.then(res => {
+  console.log(res)
+})
+
+async();
+console.log(8);
+
+// result: 1 6 2 3 8 7 4 5
