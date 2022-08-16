@@ -14,4 +14,28 @@
 //  定时器，请求，用户的事件操作,都是异步操作
 
 
+/* 测试一 */
+document.body.style.background = 'red';
+console.log(1);
+Promise.resolve().then(() => {
+  console.log(2);
+  document.body.style.background = 'yellow';
+})
+console.log(3);
+
+/* 测试二: 事件任务 */
+button.addEventListener('click',() => {
+  console.log('listener1')
+  Promise.resolve().then(() => console.log('task1'))
+})
+
+button.addEventListener('click',() => {
+  console.log('listener2')
+  Promise.resolve().then(() => console.log('task2'))
+})
+
+/* 用户点击,放入宏任务队列 */
+button.click(); // 这种情况,宏任务直接出发。 结果 listener1 listener2 task1 task2
+
+
 
